@@ -52,7 +52,7 @@ class BookDetailView(generic.DetailView):
 
 class AuthorListView(generic.ListView):
     model = Author
-    paginate_by = 3
+    paginate_by = 10
 
 
 class AuthorDetailView(generic.DetailView):
@@ -89,7 +89,7 @@ def renew_book_librarian(request, pk):
     """
     View function for renewing a specific BookInstance by librarian
     """
-    book_inst=get_object_or_404(BookInstance, pk=pk)
+    book_inst = get_object_or_404(BookInstance, pk=pk)
 
     if request.method == 'POST':
         form = RenewBookForm(request.POST)
